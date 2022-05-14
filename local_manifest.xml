@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+        <remote name="Subash2001"
+                fetch="https://github.com/Subash2001" />
+	<remote name="techyminati"
+                fetch="https://github.com/techyminati" />
+
+	<!-- Device Sauce -->
+        <project path="device/realme/RMX1821" name="device_realme_RMX1821" remote="Subash2001" revision="twelve" clone-depth="1" />
+        <project path="vendor/realme/RMX1821" name="vendor_realme_RMX1821" remote="Subash2001" revision="twelve" clone-depth="1" />
+	<project path="kernel/realme/RMX1821" name="kernel_realme_RMX1821" remote="Subash2001" revision="Q" clone-depth="1" />
+	
+	<!-- Parts -->
+	<project path="packages/apps/RealmeParts" name="android_packages_apps_RealmeParts" remote="Subash2001" revision="12" clone-depth="1" />
+     
+        <!-- Dirac -->
+        <project path="packages/apps/RealmeDirac" name="android_packages_apps_RealmeDirac" remote="techyminati" revision="lineage-19.1" clone-depth="1" />
+
+	<!-- IMS -->
+	<project path="vendor/mediatek-ims" name="vendor_mediatek-ims" remote="Subash2001" revision="twelve" clone-depth="1" />
+	
+	<!-- Patch -->
+	<remove-project name="platform_build" />
+          <project path="build/make" name="platform_build" groups="pdk" remote="Subash2001" revision="12.1.x" >
+            <copyfile src="core/root.mk" dest="Makefile" />
+            <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+            <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+            <linkfile src="core" dest="build/core" />
+            <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+            <linkfile src="target" dest="build/target" />
+            <linkfile src="tools" dest="build/tools" />
+          </project>
+
+</manifest>
